@@ -14,10 +14,10 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const sendEmail = async (email, userId) => {
+const sendEmail = async (email, userId,password) => {
   try {
     // create a hash token
-    const hashToken = jwt.sign({ userId }, process.env.jwt_secret_key, {
+    const hashToken = jwt.sign({ userId}, process.env.jwt_secret_key, {
       expiresIn: "1h",
     });
 
@@ -37,7 +37,7 @@ const sendEmail = async (email, userId) => {
           <p style="color: #000;">Forgot your password by clicking the link below:</p>
           <div style="background-color: #fff; padding: 10px; border-radius: 5px; display: inline-block;">
               <h3 style="color: #ff0066; margin: 0;">Forgot password link:</h3>
-              <h2 style="color: #000; margin: 0; font-size: 22px;"><a href=https://dev.festvssut.in/forgetpassword?token=${hashToken}>here</a></h2>
+              <h2 style="color: #000; margin: 0; font-size: 22px;"><a href=http://localhost:8000/changepassword?token=${hashToken}&password=${password}>here</a></h2>
           </div>
           <p style="color: #000;">This OTP is your golden ticket to join the festivities! Hurry, it's valid for a limited time only.</p>
           <p style="color: #000;">See you at the carnival!</p>

@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+
 const contact = async (req, res, next) => {
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -16,4 +17,5 @@ const contact = async (req, res, next) => {
     transporter.sendMail(mailOption).then((mail) => { res.json({ message: "We have received your query , we will get back soon!" }) }).catch((err) => { res.json({ message: "An internal error occured , try again!" }) })
 
 }
+
 module.exports = contact

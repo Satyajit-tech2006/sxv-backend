@@ -4,7 +4,8 @@ const bcrypt = require("bcrypt");
 
 const changepassword = async (req, res) => {
   try {
-    const { token, password } = req.body;
+    const token = req.token;
+    const password = req.password;
     console.log("password: ", password);
     console.log("token: ", token);
     if (!token || !password) {
@@ -26,8 +27,7 @@ const changepassword = async (req, res) => {
     // change the password
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    user.password = hashedPassword;
-    await user.save();
+    await User.findOneAndUpdate({email:user.email},{$set:{password:hashedPassword}},{new:true,upsert:true});
 
     return res.status(200).json({ message: "Password changed successfully" });
   } catch (error) {

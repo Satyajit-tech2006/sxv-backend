@@ -21,7 +21,7 @@ app.use("/api/events", eventRoutes);
 const authRoutes = require("./routes/Auth/auth.routes");
 app.use("/api/auth", authRoutes);
 const paymentRoutes = require('./routes/payment/payment.routes')
-app.use("/api/payment", paymentRoutes)
+app.use("/api/payment", paymentRoutes);
 const contactRoutes = require("./routes/contact/contact.routes")
 app.use("/api/contact", contactRoutes);
 const clubRoutes = require("./routes/club/club.routes")
@@ -29,7 +29,7 @@ app.use("/api/clubs", clubRoutes);
 const userRoutes = require('./routes/user/user.routes')
 app.use("/api/users", userRoutes);
 const ticketRoutes = require('./routes/ticket/ticket.routes')
-app.use("/api/ticket", ticketRoutes)
+app.use("/api/ticket", ticketRoutes);
 mongoose.set("strictQuery", false);
 const passwordRoutes = require('./routes/password/pwd.routes')
 app.use("/api/password", passwordRoutes)

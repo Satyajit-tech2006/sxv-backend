@@ -60,7 +60,7 @@ const sendOTPVerification = async (req, res) => {
              />
            </a>
        </div>
-       <h3 style="color: black">YOUR OTP FOR REGISTRATION IS</h3>
+       <h3 style="color: black">OTP For Email Verification Is</h3>
        <h1 style="color: black">
          <span
            style="padding: 5px; border-radius: 5px"

@@ -6,4 +6,5 @@ const getClubs = async (req, res) => {
         res.json({ message: "Clubs fetched", clubs })
     }).catch(err => res.json({ message: "An internal error occured" }))
 }
+
 module.exports = getClubs;

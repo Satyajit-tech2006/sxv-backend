@@ -1,6 +1,6 @@
 const OTP = require("../../models/otp.models");
 
-const verifyOTP = async (req, res) => {
+const verifyOTP = async (req, res,next) => {
   try {
     const { email, otp } = req.body;
 
@@ -19,12 +19,8 @@ const verifyOTP = async (req, res) => {
     }
 
     if (otpRecord.otp === otp) {
-      await OTP.deleteOne({ email }); 
-      
-      return res.status(200).json({ 
-        success: true, 
-        message: "Email verified successfully!" 
-      });
+      await OTP.deleteOne({ email });
+      next();
     } else {
       return res.status(401).json({ 
         success: false, 
