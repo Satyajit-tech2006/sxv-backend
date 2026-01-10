@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const eventSchema = new Schema({
-    orgId: { type: mongoose.Types.ObjectId, ref: "Club" },
+    orgId: { type: mongoose.Schema.Types.ObjectId, ref: "Club" },
     email: {
         type: String,
     },
@@ -38,6 +38,10 @@ const eventSchema = new Schema({
         type: String,
         required: true
     },
+    registrationLink: {
+        type: String,
+        required: false
+    },
     firstPrize: {
         type: String,
         required: false
@@ -53,7 +57,7 @@ const eventSchema = new Schema({
     eventType: { type: String, required: true },
     participants: [
         {
-            type: mongoose.Types.ObjectId, ref: 'User',
+            type: mongoose.Schema.Types.ObjectId, ref: 'User',
             required: false
         }
     ]

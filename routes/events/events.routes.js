@@ -11,7 +11,8 @@ const getExpo = require("../../controllers/events/getExpo")
 const getEventLink = require('../../controllers/events/getEventLink')
 const getParticipantsForEvents = require("../../controllers/events/getParticipantsForEvent")
 
-const getEv=require("../../controllers/events/getEvent")
+const getEv=require("../../controllers/events/getEvent");
+const { addEvent } = require("../../controllers/events/addEvents");
 
 router.get("/getEvents", getEvents);
 router.put("/participate", tokenValidator, isPaid, participate);
@@ -22,6 +23,7 @@ router.get("/getEventById/:eventId", getEventsById);
 router.get("/getExpo", getExpo);
 router.get("/getEventLink", getEventLink)
 router.get("/getParticipantsForEvents/:eventId", getParticipantsForEvents);
+router.post('/add', addEvent)
 
 router.post("/getEv",getEv.getParticipantsh);
 
